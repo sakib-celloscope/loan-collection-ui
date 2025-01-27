@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MRA IMS</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #316f34;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex h-screen flex-col gap-2 bg-gray-100">
+      <!-- Header -->
+      <div class="flex-none h-16 border-b bg-white">
+        <h2 class="text-center font-semibold text-xl">Navbar</h2>
+      </div>
+
+      <div class="flex flex-grow overflow-hidden">
+        <!-- Sidebar -->
+        <div
+          class="flex-none hidden md:flex shadow border bg-white rounded-sm shadow-md justify-center items-center"
+        >
+          <h2 class="text-center font-semibold text-xl w-72">Sidebar</h2>
+        </div>
+
+        <!-- Container -->
+        <div
+          class="scrollbar-thumb-rounded scrollbar-track-rounded flex-grow overflow-auto bg-gray-100 scrollbar-thin scrollbar-thumb-white scrollbar-track-gray-100 dark:bg-night-800 dark:scrollbar-thumb-night-700 dark:scrollbar-track-night-800"
+        >
+          <div class="mb-20 px-4 pb-4">
+            <!-- breadcrumb -->
+            <header>
+              <h3 class="bg-white text-[#0a6dff] p-4 rounded-sm font-semibold">
+                Regular Loan Collection
+                <span class="text-black">/ Collection Edit</span>
+              </h3>
+            </header>
+            <!-- main content -->
+            <main class="mt-4 space-y-4">
+              <!-- Samity Information -->
+              <section id="samity_info"></section>
+              <!-- Member Selection -->
+              <section
+                id="choose_member"
+                class="bg-white p-4 rounded-sm shadow-md"
+              >
+                <div class="relative">
+                  <select
+                    id="member_dropdown"
+                    class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-sm border border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                  ></select>
+                  <label
+                    for="member_dropdown"
+                    class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1"
+                  >
+                    Select Member
+                  </label>
+                  <svg
+                    class="absolute top-4 right-3 w-4 h-4 text-gray-500 peer-focus:text-blue-600 dark:peer-focus:text-blue-500"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </div>
+              </section>
+              <!-- Member Information -->
+              <section id="member_info"></section>
+              <!-- Modal for Installment Details -->
+              <div id="installmentModal" class="hidden"></div>
+              <!-- Summary -->
+              <section class="space-y-4">
+                <!-- Loan Summary -->
+                  <div class="w-full bg-white shadow-lg rounded-md overflow-hidden text-sm">
+                    <div class="bg-gray-400 text-white p-4 text-center text-lg font-semibold">
+                      Loan Account Summary
+                    </div>
+                    <div class="p-4 space-y-4">
+                      <div class="flex items-center justify-between">
+                          <span>Loan Product</span>
+                          <span>Total Due	</span>
+                          <span>Total Collection</span>
+                      </div>
+                      <hr>
+                      <div class="grid grid-cols-4 gap-2">
+                        <span>Agrosor</span>
+                        <div class="col-span-2 flex justify-center items-center">
+                          <div class="w-full text-center">
+                            <span class="text-sm ">10</span>
+                            <div class="w-[80%] h-2 bg-gray-200 rounded-full overflow-hidden mx-auto">
+                                <div class="bg-[#0a6dff] h-full w-[70%]"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <span class="flex justify-center items-center">55,200</span>
+                      </div>
+                      <div class="grid grid-cols-4 gap-2">
+                        <span>All Loan Accounts</span>
+                        <div class="col-span-2 flex justify-center items-center">
+                          <div class="w-full text-center">
+                            <span class="text-sm ">10</span>
+                            <div class="w-[80%] h-2 bg-gray-200 rounded-full overflow-hidden mx-auto">
+                                <div class="bg-[#0a6dff] h-full w-[70%]"></div>
+                            </div>
+                          </div>
+                        </div>
+                        <span class="flex justify-center items-center">55,200</span>
+                      </div>
+                    </div>
+                </div>
+                <!-- Savings Summary -->
+                <div class="w-full bg-white shadow-lg rounded-md overflow-hidden text-sm">
+                  <div class="bg-gray-400 text-white p-4 text-center text-lg font-semibold">
+                    Savings Account Summary
+                  </div>
+                  <div class="p-4 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span>Savings Product</span>
+                        <span>Total Target</span>
+                        <span>Total Collection</span>
+                    </div>
+                    <hr>
+                    <div class="grid grid-cols-4 gap-2">
+                      <span>DPS-Jagoron</span>
+                      <div class="col-span-2 flex justify-center items-center">
+                        <div class="w-full text-center">
+                          <span class="text-sm ">2,500</span>
+                          <div class="w-[80%] h-2 bg-gray-200 rounded-full overflow-hidden mx-auto">
+                              <div class="bg-[#0a6dff] h-full w-[10%]"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="flex justify-center items-center">0</span>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2">
+                      <span>General Savings</span>
+                      <div class="col-span-2 flex justify-center items-center">
+                        <div class="w-full text-center">
+                          <span class="text-sm ">200</span>
+                          <div class="w-[80%] h-2 bg-gray-200 rounded-full overflow-hidden mx-auto">
+                              <div class="bg-[#0a6dff] h-full w-[14%]"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="flex justify-center items-center">0</span>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2">
+                      <span>FDR-Agroshor</span>
+                      <div class="col-span-2 flex justify-center items-center">
+                        <div class="w-full text-center">
+                          <span class="text-sm ">2,05,000</span>
+                          <div class="w-[80%] h-2 bg-gray-200 rounded-full overflow-hidden mx-auto">
+                              <div class="bg-[#0a6dff] h-full w-[70%]"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="flex justify-center items-center">0</span>
+                    </div>
+                    <div class="grid grid-cols-4 gap-2">
+                      <span>All Savings Accounts</span>
+                      <div class="col-span-2 flex justify-center items-center">
+                        <div class="w-full text-center">
+                          <span class="text-sm">2,07,700</span>
+                          <div class="w-[80%] h-2 bg-gray-200 rounded-full overflow-hidden mx-auto">
+                              <div class="bg-[#0a6dff] h-full w-[78%]"></div>
+                          </div>
+                        </div>
+                      </div>
+                      <span class="flex justify-center items-center">0</span>
+                    </div>
+                  </div>
+              </div>
+              </section>
+              <!-- Floating Button -->
+               <div id="floating_button" class="hidden"></div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
