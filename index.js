@@ -242,6 +242,19 @@ const show_floating_button = () => {
         </div>
     `;
 
+    // floating_button_container
+    floating_button_container.addEventListener("touchmove", () => {
+        const top_button = document.getElementById('top_button');
+        const next_button = document.getElementById('next_button');
+        const previous_button = document.getElementById('previous_button');
+
+        top_button.className = 'absolute rounded-full transition-all duration-[0.2s] ease-out scale-y-100 -translate-x-16 flex p-3 scale-100 bg-green-600 text-white cursor-pointer'
+
+        next_button.className = 'absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-100 -translate-y-16  flex p-3 bg-purple-600  text-white cursor-pointer'
+
+        previous_button.className = 'absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-100 -translate-y-14 -translate-x-14   flex  p-3 bg-blue-600 text-white cursor-pointer'
+    })
+
     // top button event
     const top_button = document.getElementById('top_button');
     const choose_member_section = document.getElementById('choose_member');
