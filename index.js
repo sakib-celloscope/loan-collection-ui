@@ -225,19 +225,19 @@ const show_floating_button = () => {
         <div id="floating_button" class = "group fixed bottom-2 right-2 p-2  flex items-end justify-end w-24 h-24 cursor-pointer">
             <!-- main -->
             <div class = "text-white shadow-xl flex items-center justify-center p-3 rounded-full bg-gradient-to-r from-cyan-500 to-[#0a6dff] z-50 absolute  ">
-               <img class="w-6 h-6 group-hover:rotate-90 transition  transition-all duration-[0.6s]" src="./assets/action_key.svg" alt="Action Key">
+               <img class="w-6 h-6 group-hover:rotate-90 transition  transition-all duration-[0.6s]" src="assets/action_key.svg" alt="Action Key">
             </div>
             <!-- sub left -->
             <div id="top_button" class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-y-0 group-hover:scale-y-100 group-hover:-translate-x-16   flex  p-2 hover:p-3 bg-green-400 scale-100 hover:bg-green-600 text-white cursor-pointer">
-               <img class="w-5 h-5" src="./assets/top.svg" alt="Back To Top">
+               <img class="w-5 h-5" src="assets/top.svg" alt="Back To Top">
             </div>
             <!-- sub top -->
             <div id="next_button" class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-16  flex  p-2 hover:p-3 bg-purple-400 hover:bg-purple-600  text-white cursor-pointer">
-               <img class="w-5 h-5" src="./assets/next.svg" alt="Next">
+               <img class="w-5 h-5" src="assets/next.svg" alt="Next">
             </div>
             <!-- sub middle -->
             <div id="previous_button" class="absolute rounded-full transition-all duration-[0.2s] ease-out scale-x-0 group-hover:scale-x-100 group-hover:-translate-y-14 group-hover:-translate-x-14   flex  p-2 hover:p-3 bg-blue-400 hover:bg-blue-600 text-white cursor-pointer">
-               <img class="w-5 h-5" src="./assets/previous.svg" alt="Previous">
+               <img class="w-5 h-5" src="assets/previous.svg" alt="Previous">
             </div>
         </div>
     `;
