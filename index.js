@@ -102,7 +102,7 @@ const display_selected_member = () => {
             </div>
             <!-- Tab Buttons -->
             <div class="grid grid-cols-2 gap-2 rounded-sm">
-                <button id="loanTab" class="tab-button w-full px-4 py-2 w-1/2 text-start font-semibold border-b-2 border-blue-600 bg-gray-200 shadow-md">Loan Account</button>
+                <button id="loanTab" class="tab-button w-full px-4 py-2 w-1/2 text-start font-semibold text-white bg-gray-400 shadow-md">Loan Account</button>
                 <button id="savingsTab" class="tab-button w-full px-4 py-2 w-1/2 text-start font-semibold text-gray-500">Savings Account</button>
             </div>
             <!-- Tab Content -->
@@ -146,10 +146,10 @@ const display_selected_member = () => {
     const savingsContent = document.getElementById("savingsContent");
 
     const switchTab = (activeTab, inactiveTab, activeContent, inactiveContent) =>{
-        activeTab.classList.add("text-blue-600", "border-blue-600", "border-b-2", "bg-gray-200", "shadow-md");
+        activeTab.classList.add("text-white", "bg-gray-400", "shadow-md");
         activeTab.classList.remove("text-gray-500");
         inactiveTab.classList.add("text-gray-500");
-        inactiveTab.classList.remove("text-blue-600", "border-blue-600", "border-b-2", "bg-gray-200", "shadow-md");
+        inactiveTab.classList.remove("text-white", "bg-gray-400", "shadow-md");
 
         activeContent.classList.remove("hidden");
         inactiveContent.classList.add("hidden");
@@ -314,59 +314,3 @@ const show_floating_button = () => {
     }
 
 }
-
-const memberInfoSection = document.getElementById("member_info");
-
-let touchStartX = 0;
-let touchEndX = 0;
-
-// Function to handle touch start
-memberInfoSection.addEventListener("touchstart", (event) => {
-    touchStartX = event.touches[0].clientX; // Get initial touch position
-});
-
-// Function to handle touch end
-memberInfoSection.addEventListener("touchend", (event) => {
-    touchEndX = event.changedTouches[0].clientX; // Get final touch position
-    handleSwipe();
-});
-
-// Function to determine swipe direction
-const handleSwipe = () => {
-    const swipeThreshold = 50; // Minimum swipe distance to trigger action
-
-    if (touchStartX - touchEndX > swipeThreshold) {
-        // Swiped Left → Next Member
-        selectNextMember();
-    } else if (touchEndX - touchStartX > swipeThreshold) {
-        // Swiped Right → Previous Member
-        selectPreviousMember();
-    }
-};
-
-// Function to select the next member
-const selectNextMember = () => {
-    const memberList = samity_data.memberList;
-    const currentIndex = memberList.findIndex(member => member.memberId === selected_member.memberId);
-
-    if (currentIndex !== -1) {
-        const nextIndex = (currentIndex + 1) % memberList.length; // Circular navigation
-        selected_member = memberList[nextIndex]; // Update selected member
-        
-        update_member_dropdown();
-        display_selected_member();
-    }
-};
-
-// Function to select the previous member
-const selectPreviousMember = () => {
-    const memberList = samity_data.memberList;
-    const currentIndex = memberList.findIndex(member => member.memberId === selected_member.memberId);
-
-    if (currentIndex !== -1) {
-        const prevIndex = (currentIndex - 1 + memberList.length) % memberList.length; // Circular navigation
-        selected_member = memberList[prevIndex]; // Update selected member
-        update_member_dropdown();
-        display_selected_member();
-    }
-};
